@@ -42,7 +42,10 @@ class FirstLoad extends StatelessWidget {
                     children: [
                       TextSpan(
                           text: 'Welcome to Contact.com \n',
-                          style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold,color: Colors.black)),
+                          style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black)),
                       TextSpan(
                           text:
                               'lorem sum lorem coten thos is some random contect sha',
@@ -56,7 +59,7 @@ class FirstLoad extends StatelessWidget {
             Positioned(
               left: 0.0,
               right: 0.0,
-              bottom: 0.06 * scrData.height,
+              bottom: 0.08 * scrData.height,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -97,20 +100,22 @@ class FirstLoad extends StatelessWidget {
             Positioned(
               left: 0.0,
               right: 0.0,
-              bottom: 15.0,
+              bottom: 0.10 * scrData.width,
               child: Center(
                 // padding: const EdgeInsets.symmetric(horizontal:18.0),
                 child: RichText(
-                text: TextSpan(children: [
-                  TextSpan(
-                      text: 'By logging in or resgistering, I agree to the',
-                      style: TextStyle(color: Colors.black, fontSize: 11.0)),
-                  TextSpan(
-                      text: ' Terms of Service',
-                      style: TextStyle(color: Color(0xff77cae0), fontSize: 11.0))
-                ]),
+                  text: TextSpan(children: [
+                    TextSpan(
+                        text: 'By logging in or resgistering, I agree to the',
+                        style: TextStyle(color: Colors.black, fontSize: 11.0)),
+                    TextSpan(
+                        text: ' Terms of Service',
+                        style:
+                            TextStyle(color: Color(0xff77cae0), fontSize: 11.0))
+                  ]),
+                ),
+              ),
             ),
-              ))
           ],
         ),
       ),
