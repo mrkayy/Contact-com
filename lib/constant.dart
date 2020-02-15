@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kIconFont = TextStyle( 
+const kLogofont = TextStyle( 
   fontWeight: FontWeight.w300,
-  fontSize: 21.0,
+  fontSize: 20.0,
 );
