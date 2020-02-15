@@ -14,21 +14,19 @@ class FirstLoad extends StatelessWidget {
           children: <Widget>[
             Positioned(
               // left: 0.0,
-              right: 0.15 * scrData.width,
+              right: 0.08 * scrData.width,
               top: 0.2 * scrData.height,
-              child: Center(
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 250.0,
-                  height: 130.0,
-                  padding: const EdgeInsets.all(20.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.grey[300],
-                    border: Border.all(color: Colors.grey[400]),
-                  ),
-                  child: Text('sample content'),
+              child: Container(
+                alignment: Alignment.center,
+                width: 300.0,
+                height: 130.0,
+                padding: const EdgeInsets.all(20.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  color: Colors.grey[300],
+                  border: Border.all(color: Colors.grey[400]),
                 ),
+                child: Text('sample content'),
               ),
             ),
             Positioned(
@@ -36,7 +34,7 @@ class FirstLoad extends StatelessWidget {
               right: 0.0,
               top: 0.39 * scrData.height,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: RichText(
                   text: TextSpan(
                     children: [
