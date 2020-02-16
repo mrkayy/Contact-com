@@ -8,6 +8,7 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
+
   @override
   Widget build(BuildContext context) {
     var scrData = MediaQuery.of(context).size;
@@ -22,7 +23,7 @@ class _SigninState extends State<Signin> {
             Positioned(
               left: 0.083 * scrData.width,
               // right: 0.0,
-              bottom: 0.04 * scrData.height,
+              bottom: 0.02 * scrData.height,
               child: Column(
                 children: <Widget>[
                   MaterialButton(
@@ -34,28 +35,25 @@ class _SigninState extends State<Signin> {
                       borderRadius: BorderRadius.circular(25.0),
                     ),
                     onPressed: () {},
-                    child:
-                        Text('LOGIN', style: TextStyle(color: Colors.white)),
+                    child: Text('LOGIN', style: TextStyle(color: Colors.white)),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        // Navigator.of(context).pop();
-                        Navigator.of(context).pushReplacementNamed(ResgisterUser.id);
-                      },
-                      child:RichText(
-                        text: TextSpan(children: [
-                          TextSpan(
-                              text: 'Don\'t have an account? ',
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 11.0)),
-                          TextSpan(
-                              text: 'REGISTER',
-                              style: TextStyle(
-                                  color: Color(0xff77cae0), fontSize: 11.0))
-                        ]),
-                      ),
+                  FlatButton(
+                    onPressed: () {
+                      // Navigator.of(context).pop();
+                      Navigator.of(context)
+                          .pushReplacementNamed(RegisterUser.id);
+                    },
+                    child: RichText(
+                      text: TextSpan(children: [
+                        TextSpan(
+                            text: 'Don\'t have an account? ',
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 11.0)),
+                        TextSpan(
+                            text: 'REGISTER',
+                            style: TextStyle(
+                                color: Color(0xff77cae0), fontSize: 11.0))
+                      ]),
                     ),
                   ),
                 ],

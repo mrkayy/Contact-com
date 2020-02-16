@@ -5,6 +5,7 @@ import 'screen/splashScreen.dart';
 import 'screen/register.dart';
 import 'screen/signin.dart';
 import 'screen/firstLoad.dart';
+// import 'screen/subscription.dart';
 
 
 void main() => runApp(MyApp());
@@ -15,16 +16,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Contact',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
       ),
       // home:null,
       initialRoute: SplashScreen.id,
       routes: <String, WidgetBuilder>{
         SplashScreen.id: (BuildContext context) => SplashScreen(),
         Dashboard.id: (BuildContext context) => Dashboard(),
-        ResgisterUser.id: (BuildContext context) => ResgisterUser(),
+        RegisterUser.id: (BuildContext context) => RegisterUser(),
         Signin.id: (BuildContext context) => Signin(),
         FirstLoad.id: (BuildContext context) => FirstLoad(),
+        // Subscriptions.id: (BuildContext context) => Subscriptions(),
       },
     );
   }
