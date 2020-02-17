@@ -21,6 +21,12 @@ class _SigninState extends State<Signin> {
         body: Stack(
           children: <Widget>[
             Positioned(
+              left: 0.0,
+              right: 0.0,
+              bottom: 0.5 * scrData.height,
+              child: Container(child: TextField(),),
+            ),
+            Positioned(
               left: 0.083 * scrData.width,
               // right: 0.0,
               bottom: 0.02 * scrData.height,

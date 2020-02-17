@@ -1,19 +1,19 @@
 class SubscriptionList {
-  int _id;
+  int _sid;
   String _sms;
   String _plan;
   String _package;
   String _amount;
 
   SubscriptionList(
-    this._id,
+    this._sid,
     this._sms,
     this._plan,
     this._package,
     this._amount,
   );
 
-  int get id => _id;
+  int get sid => _sid;
   String get sms => _sms;
   String get plan => _plan;
   String get package => _package;
@@ -22,7 +22,7 @@ class SubscriptionList {
   Map<String, dynamic> toMap() {
     var map = new Map<String, dynamic>();
 
-    map["id"] = _id;
+    map["sid"] = _sid;
     map["sms"] = _sms;
     map["plan"] = _plan;
     map["package"] = _package;
@@ -32,7 +32,7 @@ class SubscriptionList {
   }
 
   SubscriptionList.map(dynamic obj) {
-    this._id = obj['id'];
+    this._sid = obj['sid'];
     this._sms = obj['sms'];
     this._plan = obj['plan'];
     this._package = obj['package'];
@@ -40,7 +40,7 @@ class SubscriptionList {
   }
 
   SubscriptionList.fromMap(Map<String, dynamic> map) {
-    this._id = map["id"];
+    this._sid = map["sid"];
     this._sms = map["sms"];
     this._plan = map["plan"];
     this._package = map["package"];

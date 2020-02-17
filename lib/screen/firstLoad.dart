@@ -25,9 +25,7 @@ class FirstLoad extends StatelessWidget {
                     padding: const EdgeInsets.all(20.0),
                     color: Color(0xff77cae0),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.horizontal(
-                        left: Radius.circular(25.0),
-                      ),
+                      borderRadius: BorderRadius.circular(25.0),
                     ),
                     onPressed: () {
                       Navigator.of(context).pushNamed(Signin.id);
@@ -38,9 +36,7 @@ class FirstLoad extends StatelessWidget {
                     minWidth: 0.2 * scrData.height,
                     height: 0.16 * scrData.width,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.horizontal(
-                        right: Radius.circular(25.0),
-                      ),
+                      borderRadius: BorderRadius.circular(25.0),
                     ),
                     padding: const EdgeInsets.all(20.0),
                     color: Colors.blueGrey[200], //Color(0xff77cae0),
