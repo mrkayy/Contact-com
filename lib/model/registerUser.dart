@@ -1,19 +1,20 @@
+//Create new user class
 class RegisterNewUser {
-  String _company;
-  String _address;
-  String _email;
-  String _phone;
-  String _password;
-  int _sid;
+  String company;
+  String address;
+  String email;
+  String phone;
+  String password;
+  int sid;
 
-//   RegisterNewUser(
-//     this._sid,
-//     this._email,
-//     this._phone,
-//     this._company,
-//     this._address,
-//     this._password,
-//   );
+  RegisterNewUser({
+    this.sid,
+    this.email,
+    this.phone,
+    this.company,
+    this.address,
+    this.password,
+  });
 
 //   String get companyname => _company;
 //   String get address => _address;
@@ -56,3 +57,4 @@ class RegisterNewUser {
 //     );
 //   }
 // }
+}

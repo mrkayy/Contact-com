@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 import 'screen/dashboard.dart';
 import 'screen/splashScreen.dart';
 import 'screen/register.dart';
 import 'screen/signin.dart';
-import 'screen/firstLoad.dart';
+import 'screen/onboarding.dart';
+// import 'services/api_services.dart';
+import 'services/dummyData.dart';
 // import 'screen/subscription.dart';
 
+void setupLocator(){
+  GetIt.I.registerLazySingleton(()=>DummyData());
+  //TODO: uncomment the lazy singleton for api response
+  // GetIt.I.registerLazySingleton(()=>ApiServices());
+}
 
-void main() => runApp(MyApp());
+void main() {
+  setupLocator();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override

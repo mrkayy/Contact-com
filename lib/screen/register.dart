@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as https;
 import 'package:flutter/services.dart';
+import 'package:get_it/get_it.dart';
+import '../model/apiResponse.dart';
 import '../model/registerUser.dart';
 import '../model/subscriptions.dart';
-import '../utils/dummyData.dart';
+import '../services/api_services.dart';
+import '../services/dummyData.dart';
 
 class RegisterUser extends StatefulWidget {
   static String id = "register";
@@ -13,17 +14,37 @@ class RegisterUser extends StatefulWidget {
 }
 
 class _RegisterUserState extends State<RegisterUser> {
+
+    DummyData get services => GetIt.I<DummyData>();
+    // ApiServices get services => GetIt.I<ApiServices>();
+    
+  List<SubscriptionOfList> subsList = [];
+  //Create an instance of the api class
+  APIResponse<List<SubscriptionOfList>> _response;
+  bool _isLoading = false;
+
+  _fetchSubscriptionsList() async {
+    //Set the state of the app while getting api data
+    setState(() {
+      _isLoading = true;
+    });
+
+    // _response = await services.getSubscriptionsList();
+    // _response = await services.getSubscriptions();
+
+    //Set is loafing to 
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  //
   final GlobalKey<FormState> _formState = GlobalKey<FormState>();
+  //using get it to create a global instance of the class that can be call any here
 
   final controller = PageController(initialPage: 0);
-  DummyData subscriptionDummyDataList = DummyData();
 
-  final String url = "http://192.168.43.148:8000/api/subscription";
-  final String createUserUrl = "http://192.168.43.148:8000/api/account";
-  final String verifyUserUrl = "http://192.168.43.148:8000/api/account/verify";
-  // var _subscriptionsList = <SubscriptionList>[];
-//
-
+/*
   Future<void> verifyAccount() async {
     try {
       await https
@@ -73,8 +94,8 @@ class _RegisterUserState extends State<RegisterUser> {
     }
   }
 
-  Future<List<SubscriptionList>> getSubscriptions() async {
-    var _subscriptionList = <SubscriptionList>[];
+  Future<List<SubscriptionOfList>> getSubscriptions() async {
+    var _subscriptionList = <SubscriptionOfList>[];
     try {
       var response = await https
           .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
@@ -82,7 +103,7 @@ class _RegisterUserState extends State<RegisterUser> {
       print(result[0]);
 
       for (var n in result) {
-        var subscriptions = SubscriptionList(
+        var subscriptions = SubscriptionOfList(
           n.sid,
           n.sms,
           n.plan,
@@ -97,7 +118,7 @@ class _RegisterUserState extends State<RegisterUser> {
     // print(_subscriptionList.elementAt(0).);
     return _subscriptionList;
   }
-
+*/
   RegisterNewUser registerNewUser;
   double formSpacing = 0.0;
 
@@ -111,9 +132,7 @@ class _RegisterUserState extends State<RegisterUser> {
 
   @override
   void initState() {
-    // getSubscriptions();
-    // createAccount();
-    // verifyAccount();
+    subsList = services.getSubscriptionsList();
     super.initState();
   }
 
@@ -241,10 +260,8 @@ class _RegisterUserState extends State<RegisterUser> {
               height: 0.7 * scrData.height,
               alignment: Alignment.center,
               child: ListView.builder(
-                itemCount:
-                    subscriptionDummyDataList.subscriptionsDummyList.length,
+                itemCount: subsList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  var data = subscriptionDummyDataList.subscriptionsDummyList;
                   return Container(
                     height: 0.25 * scrData.height,
                     decoration: BoxDecoration(
@@ -255,7 +272,7 @@ class _RegisterUserState extends State<RegisterUser> {
                         setState(() {
                           formSpacing = 25.0;
                         });
-                        subscriptionID = data[index].sid;
+                        subscriptionID = subsList[index].sid;
                         controller.nextPage(
                             duration: Duration(milliseconds: 350),
                             curve: Curves.ease);
@@ -265,23 +282,23 @@ class _RegisterUserState extends State<RegisterUser> {
                           children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text(data[index].sid.toString()),
+                              child: Text(subsList[index].sid.toString()),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text(data[index].plan),
+                              child: Text(subsList[index].plan),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text(data[index].sms),
+                              child: Text(subsList[index].sms),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text(data[index].package),
+                              child: Text(subsList[index].package),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text(data[index].amount),
+                              child: Text(subsList[index].amount),
                             ),
                           ],
                         ),
