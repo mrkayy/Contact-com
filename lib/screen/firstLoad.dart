@@ -102,15 +102,19 @@ class FirstLoad extends StatelessWidget {
               child: Center(
                 // padding: const EdgeInsets.symmetric(horizontal:18.0),
                 child: RichText(
-                  text: TextSpan(children: [
-                    TextSpan(
-                        text: 'By logging in or resgistering, I agree to the',
-                        style: TextStyle(color: Colors.black, fontSize: 11.0)),
-                    TextSpan(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                          text: 'By logging in or resgistering, I agree to the',
+                          style:
+                              TextStyle(color: Colors.black, fontSize: 11.0)),
+                      TextSpan(
                         text: ' Terms of Service',
                         style:
-                            TextStyle(color: Color(0xff77cae0), fontSize: 11.0))
-                  ]),
+                            TextStyle(color: Color(0xff77cae0), fontSize: 11.0),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
