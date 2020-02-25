@@ -87,7 +87,7 @@ class FirstLoad extends StatelessWidget {
                     padding: const EdgeInsets.all(20.0),
                     color: Colors.blueGrey[200], //Color(0xff77cae0),
                     onPressed: () {
-                      Navigator.of(context).pushNamed(ResgisterUser.id);
+                      Navigator.of(context).pushNamed(RegisterUser.id);
                     },
                     child:
                         Text('REGISTER', style: TextStyle(color: Colors.white)),

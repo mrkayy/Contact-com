@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constant.dart';
-import 'firstLoad.dart';
+import 'onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   static String id = "splashScreen";
@@ -10,9 +9,8 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   void delayScreen() {
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (BuildContext context) => FirstLoad()));
+    Future.delayed(Duration(seconds: 5), () {
+      Navigator.pushReplacementNamed(context, FirstLoad.id);
     });
   }
 
@@ -25,44 +23,15 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     var scrData = MediaQuery.of(context).size;
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            Positioned(
-              // top: 0.0,
-              left: 0.0,
-              right: 0.0,
-              bottom: 0.35 * scrData.height,
-              child: Column(
-                children: <Widget>[
-                  GestureDetector(
-                    onTap: () {},//=> Navigator.of(context).pushNamed(FirstLoad.id),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.grey[300],
-                      radius: 50.0,
-                    ),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'Contact',
-                    style: kLogofont,
-                  ),
-                ],
-              ),
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              child: Image.asset("assets/images/applogo.png"),
             ),
-            Positioned(
-              left: 0.0,
-              right: 0.0,
-              bottom: 0.01 * scrData.height,
-              child: Column(
-                children: <Widget>[
-                  Text('powered by: null',style: TextStyle(fontSize: 11.0),),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
