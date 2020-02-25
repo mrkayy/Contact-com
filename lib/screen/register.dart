@@ -4,7 +4,6 @@ import 'package:get_it/get_it.dart';
 import '../model/apiResponse.dart';
 import '../model/registerUser.dart';
 import '../model/subscriptions.dart';
-import '../services/api_services.dart';
 import '../services/dummyData.dart';
 
 class RegisterUser extends StatefulWidget {
