@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'signin.dart';
+// import 'signin.dart';
 import 'register.dart';
 
 class FirstLoad extends StatelessWidget {
@@ -116,7 +116,7 @@ class FirstLoad extends StatelessWidget {
                               curve: Curves.ease);
                           break;
                         case 2:
-                          Navigator.of(context).pushNamed(Signin.id);
+                          Navigator.of(context).pushNamed(RegisterUser.id);
                           break;
                         default:
                       }

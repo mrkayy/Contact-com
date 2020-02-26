@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 
 class Signin extends StatefulWidget {
   static String id = "signin";
+
+  final String username;
+  Signin({this.username});
   @override
   _SigninState createState() => _SigninState();
 }
