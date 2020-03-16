@@ -5,21 +5,20 @@ import 'screen/dashboard.dart';
 import 'screen/registration_success.dart';
 import 'screen/registration_summary.dart';
 import 'screen/splashScreen.dart';
-import 'screen/register.dart';
+import 'screen/register_subscription.dart';
 import 'screen/signin.dart';
 import 'screen/onboarding.dart';
 import 'screen/registration_form.dart';
-// import 'services/api_services.dart';
-import 'services/dummyData.dart';
+import 'services/api_services.dart';
+// import 'services/dummyData.dart';
 
-void setupLocator(){
-  GetIt.I.registerLazySingleton(()=>DummyData());
-  //TODO: uncomment the lazy singleton for api response
-  // GetIt.I.registerLazySingleton(()=>ApiServices());
+void setupServiceLocator() {
+  // GetIt.I.registerLazySingleton(()=>DummyData());
+  GetIt.I.registerLazySingleton(() => ApiServices());
 }
 
 void main() {
-  setupLocator();
+  setupServiceLocator();
   runApp(MyApp());
 }
 
@@ -27,21 +26,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Contact',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       // home:null,
       initialRoute: SplashScreen.id,
       routes: <String, WidgetBuilder>{
         SplashScreen.id: (BuildContext context) => SplashScreen(),
         Dashboard.id: (BuildContext context) => Dashboard(),
-        RegisterUser.id: (BuildContext context) => RegisterUser(),
+        RegisterSubscription.id: (BuildContext context) =>
+            RegisterSubscription(),
         Signin.id: (BuildContext context) => Signin(),
         FirstLoad.id: (BuildContext context) => FirstLoad(),
         RegistrationForm.id: (BuildContext context) => RegistrationForm(),
         RegistrationSummary.id: (BuildContext context) => RegistrationSummary(),
-        RegistrationComplete.id: (BuildContext context) => RegistrationComplete(),
+        RegistrationSuccessPage.id: (BuildContext context) =>
+            RegistrationSuccessPage(),
       },
     );
   }

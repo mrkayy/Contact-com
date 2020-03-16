@@ -1,13 +1,38 @@
-import '../model/subscriptions.dart';
+import '../model/subscription.dart';
 
 class DummyData {
-  List<SubscriptionOfList> getSubscriptionsList() {
+  List<SubscriptionsList> getSubscriptionsList() {
     return [
-      SubscriptionOfList(sid:1, sms:"40", plan:"Premium", package:"Full Package", amount:"20,000"),
-      SubscriptionOfList(sid:2, sms:"30", plan:"Gold", package:"Full Package", amount:"15,000"),
-      SubscriptionOfList(sid:3, sms:"25", plan:"Silver", package:"Normal", amount:"10,000"),
-      SubscriptionOfList(sid:4, sms:"20", plan:"Nickel", package:"Medium", amount:"8,000"),
-      SubscriptionOfList(sid:5, sms:"10", plan:"Copper", package:"Minimum", amount:"5,000"),
+      SubscriptionsList(
+          id: 1,
+          sms: "40",
+          plan: "Premium",
+          description: "Full Package",
+          amount: "20,000"),
+      SubscriptionsList(
+          id: 2,
+          sms: "30",
+          plan: "Gold",
+          description: "Full Package",
+          amount: "15,000"),
+      SubscriptionsList(
+          id: 3,
+          sms: "25",
+          plan: "Silver",
+          description: "Normal",
+          amount: "10,000"),
+      SubscriptionsList(
+          id: 4,
+          sms: "20",
+          plan: "Nickel",
+          description: "Medium",
+          amount: "8,000"),
+      SubscriptionsList(
+          id: 5,
+          sms: "10",
+          plan: "Copper",
+          description: "Minimum",
+          amount: "5,000"),
     ];
   }
 }

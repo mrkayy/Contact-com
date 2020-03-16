@@ -1,3 +1,4 @@
-class Use{
-  
+class SiginUser {
+  String user;
+  String userPassword;
 }

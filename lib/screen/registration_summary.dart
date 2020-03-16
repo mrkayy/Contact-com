@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 
-import './registration_success.dart';
+import '../model/user.dart';
+// import './registration_success.dart';
+import '../model/create_institution.dart';
+import '../widgets/confirm_registration_dialog.dart';
 
-class RegistrationSummary extends StatelessWidget {
-  final String companyName;
-  final String address;
-  final String email;
-  final String phone;
-
+class RegistrationSummary extends StatefulWidget {
   static String id = 'registrationSummmry';
+  final NewInstitution registrationSummary;
 
-  const RegistrationSummary(
-      {this.companyName, this.address, this.email, this.phone});
+  RegistrationSummary({this.registrationSummary});
+
+  @override
+  _RegistrationSummaryState createState() => _RegistrationSummaryState();
+}
+
+class _RegistrationSummaryState extends State<RegistrationSummary> {
+  final userInfo = SiginUser();
+
+  bool isRegistering = false;
   @override
   Widget build(BuildContext context) {
     final scrData = MediaQuery.of(context).size;
@@ -32,14 +39,14 @@ class RegistrationSummary extends StatelessWidget {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                        text: 'Register',
+                        text: 'Confirm Registration',
                         style: TextStyle(
                             fontFamily: "WorkSans",
                             color: Colors.black,
                             fontSize: 32.20)),
                     TextSpan(
                         text:
-                            '\nKindly confirm that the details below are correct before creating you Institution account.',
+                            '\nKindly confirm that the details below are correct before creating your Institution account.',
                         style: TextStyle(
                             fontFamily: "WorkSans",
                             color: Colors.black,
@@ -49,14 +56,67 @@ class RegistrationSummary extends StatelessWidget {
               ),
             ),
             Container(
-              height: 0.5 * scrData.height,
-              padding: const EdgeInsets.only(top: 30.0),
+              height: 0.48 * scrData.height,
+              // padding: const EdgeInsets.only(top: 30.0),
               // alignment: Alignment.center,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Registration Summary',style: TextStyle(fontSize: 13.0),),
-                  SizedBox(height: 20.0),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "Subscription Plan",
+                          style: TextStyle(fontSize: 11.0, color: Colors.black),
+                        ),
+                        TextSpan(
+                          text:
+                              "\n${widget.registrationSummary.subscription.plan}",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16.0,
+                              color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "Subscription Plan Amount",
+                          style: TextStyle(fontSize: 11.0, color: Colors.black),
+                        ),
+                        TextSpan(
+                          text:
+                              "\n${widget.registrationSummary.subscription.price}",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16.0,
+                              color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "Subscription Package",
+                          style: TextStyle(fontSize: 11.0, color: Colors.black),
+                        ),
+                        TextSpan(
+                          text:
+                              "\n${widget.registrationSummary.subscription.description}",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16.0,
+                              color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  ),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -65,7 +125,7 @@ class RegistrationSummary extends StatelessWidget {
                           style: TextStyle(fontSize: 11.0, color: Colors.black),
                         ),
                         TextSpan(
-                          text: "\n{Company Name}",
+                          text: "\n${widget.registrationSummary.companyName}",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 16.0,
@@ -74,7 +134,7 @@ class RegistrationSummary extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 50.0),
+                  // SizedBox(height: 50.0),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -83,7 +143,7 @@ class RegistrationSummary extends StatelessWidget {
                           style: TextStyle(fontSize: 11.0, color: Colors.black),
                         ),
                         TextSpan(
-                          text: "\n{Company Name}",
+                          text: "\n${widget.registrationSummary.address}",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 16.0,
@@ -92,7 +152,7 @@ class RegistrationSummary extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 50.0),
+                  // SizedBox(height: 50.0),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -101,7 +161,7 @@ class RegistrationSummary extends StatelessWidget {
                           style: TextStyle(fontSize: 11.0, color: Colors.black),
                         ),
                         TextSpan(
-                          text: "\n{Company Name}",
+                          text: "\n${widget.registrationSummary.email}",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 16.0,
@@ -110,7 +170,7 @@ class RegistrationSummary extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 50.0),
+                  // SizedBox(height: 50.0),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -119,7 +179,7 @@ class RegistrationSummary extends StatelessWidget {
                           style: TextStyle(fontSize: 11.0, color: Colors.black),
                         ),
                         TextSpan(
-                          text: "\n{Company Name}",
+                          text: "\n${widget.registrationSummary.phoneNumber}",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 16.0,
@@ -133,16 +193,14 @@ class RegistrationSummary extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.only(top: 28.0),
-              height: 0.18 * scrData.height,
               child: Column(
                 children: <Widget>[
                   MaterialButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0)),
                     minWidth: 300.0,
                     height: 50.0,
                     color: Color(0xff2CD18A),
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(RegistrationComplete.id);
-                    },
                     child: Text(
                       'Confirm',
                       style: TextStyle(
@@ -151,12 +209,28 @@ class RegistrationSummary extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                  ),
-                  SizedBox(height:7.0),
-                  FlatButton(
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) {
+                            return confirmRegistration(
+                                registrationState: false,
+                                setState: registeringInstitution,
+                                institution: widget.registrationSummary);
+                          });
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (BuildContext context) =>
+                      //     RegistrationSuccessPage(
+                      //       institutionInfo: registrationSummary,
+                      //     ),
+                      //   ),
+                      // );
                     },
+                  ),
+                  SizedBox(height: 7.0),
+                  FlatButton(
                     child: Text(
                       "Back",
                       style: TextStyle(
@@ -165,6 +239,9 @@ class RegistrationSummary extends StatelessWidget {
                         fontFamily: "WorkSans",
                       ),
                     ),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
                   ),
                 ],
               ),
@@ -173,5 +250,12 @@ class RegistrationSummary extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void registeringInstitution() {
+    setState(() {
+      isRegistering = !isRegistering;
+    });
+    print(isRegistering);
   }
 }
